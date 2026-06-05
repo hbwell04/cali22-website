@@ -31,6 +31,9 @@ const Footer: React.FC = () => {
               <li>
                 <a href="#screenshots" className="hover:text-white transition-colors">Screenshots</a>
               </li>
+              <li>
+                <Link to="/why-cali-22" className="hover:text-white transition-colors">Why Cali 22</Link>
+              </li>
             </ul>
           </div>
 
