@@ -52,6 +52,7 @@ const Navbar: React.FC = () => {
           <a href="/#features" onClick={(e) => handleSectionClick(e, 'features')} className="hover:text-violet-600 transition-colors">Features</a>
           <a href="/#how-it-works" onClick={(e) => handleSectionClick(e, 'how-it-works')} className="hover:text-violet-600 transition-colors">How it works</a>
           <a href="/#screenshots" onClick={(e) => handleSectionClick(e, 'screenshots')} className="hover:text-violet-600 transition-colors">Screenshots</a>
+          <Link to="/why-cali-22" className="hover:text-violet-600 transition-colors">Why Cali 22</Link>
           <Link to="/privacy" className="hover:text-violet-600 transition-colors">Privacy</Link>
           <Link to="/terms" className="hover:text-violet-600 transition-colors">Terms</Link>
         </nav>
@@ -78,6 +79,7 @@ const Navbar: React.FC = () => {
             <a href="/#features" onClick={(e) => handleSectionClick(e, 'features')}>Features</a>
             <a href="/#how-it-works" onClick={(e) => handleSectionClick(e, 'how-it-works')}>How it works</a>
             <a href="/#screenshots" onClick={(e) => handleSectionClick(e, 'screenshots')}>Screenshots</a>
+            <Link to="/why-cali-22" onClick={() => setOpen(false)}>Why Cali 22</Link>
             <Link to="/privacy" onClick={() => setOpen(false)}>Privacy</Link>
             <Link to="/terms" onClick={() => setOpen(false)}>Terms</Link>
             <button
