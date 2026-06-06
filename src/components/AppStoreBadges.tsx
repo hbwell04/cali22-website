@@ -17,6 +17,8 @@ interface AppStoreBadgesProps {
   appleUrl?: string;
   /** Override the Google Play Store URL for this instance. */
   googleUrl?: string;
+  /** Show a "Coming Soon" badge on the Google Play button. Defaults to true. */
+  googleComingSoon?: boolean;
 }
 
 const AppStoreBadges: React.FC<AppStoreBadgesProps> = ({
@@ -24,6 +26,7 @@ const AppStoreBadges: React.FC<AppStoreBadgesProps> = ({
   className = '',
   appleUrl = APPLE_APP_STORE_URL,
   googleUrl = GOOGLE_PLAY_STORE_URL,
+  googleComingSoon = true,
 }) => {
   const baseBtn =
     variant === 'dark'
@@ -48,24 +51,31 @@ const AppStoreBadges: React.FC<AppStoreBadgesProps> = ({
         </div>
       </a>
 
-      <a
-        href={googleUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex items-center gap-3 px-5 py-3 rounded-xl transition-colors shadow-md ${baseBtn}`}
-        aria-label="Get Cali 22 on Google Play"
-      >
-        <svg className="w-7 h-7" viewBox="0 0 512 512" aria-hidden="true">
-          <path d="M325.3 234.3 104.3 13.7l255.7 147.5-34.7 73.1z" fill="#EA4335" />
-          <path d="M104.3 13.7c-7.6 4.4-12.3 12.6-12.3 23.6v438.4c0 11 4.7 19.2 12.3 23.6l213.4-213.6L104.3 13.7z" fill="#FBBC04" />
-          <path d="M360 161.2 484.6 233c14.6 8.4 14.6 31.6 0 40l-124.7 71.7-37.4-37.4 37.5-145.1z" fill="#34A853" />
-          <path d="m104.3 498.3 255.7-147.5-34.7-72.1L104.3 498.3z" fill="#4285F4" />
-        </svg>
-        <div className="text-left leading-tight">
-          <div className="text-[10px] uppercase tracking-wide opacity-80">Get it on</div>
-          <div className="text-lg font-semibold -mt-0.5">Google Play</div>
-        </div>
-      </a>
+      <div className="relative inline-flex">
+        {googleComingSoon && (
+          <span className="absolute -top-2 right-2 z-10 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-black shadow-md ring-1 ring-amber-500/40">
+            Coming Soon
+          </span>
+        )}
+        <a
+          href={googleUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`flex w-full items-center gap-3 px-5 py-3 rounded-xl transition-colors shadow-md ${baseBtn}`}
+          aria-label="Get Cali 22 on Google Play (coming soon)"
+        >
+          <svg className="w-7 h-7" viewBox="0 0 512 512" aria-hidden="true">
+            <path d="M325.3 234.3 104.3 13.7l255.7 147.5-34.7 73.1z" fill="#EA4335" />
+            <path d="M104.3 13.7c-7.6 4.4-12.3 12.6-12.3 23.6v438.4c0 11 4.7 19.2 12.3 23.6l213.4-213.6L104.3 13.7z" fill="#FBBC04" />
+            <path d="M360 161.2 484.6 233c14.6 8.4 14.6 31.6 0 40l-124.7 71.7-37.4-37.4 37.5-145.1z" fill="#34A853" />
+            <path d="m104.3 498.3 255.7-147.5-34.7-72.1L104.3 498.3z" fill="#4285F4" />
+          </svg>
+          <div className="text-left leading-tight">
+            <div className="text-[10px] uppercase tracking-wide opacity-80">Get it on</div>
+            <div className="text-lg font-semibold -mt-0.5">Google Play</div>
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
