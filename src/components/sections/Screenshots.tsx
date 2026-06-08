@@ -1,10 +1,16 @@
 import React from 'react';
 
-const shots = [
+type Shot = {
+  src: string;
+  label: string;
+  caption: string;
+};
+
+const shots: Shot[] = [
   {
     src: 'https://d64gsuwffb70l.cloudfront.net/69a60a5b739ac2fdda8a86ef_1777341429843_31081ec2.PNG',
     label: 'Dashboard',
-    caption: 'See your Prop 22 estimate at a glance.',
+    caption: 'See your estimated Prop 22 owed at a glance.',
   },
   {
     src: 'https://d64gsuwffb70l.cloudfront.net/69a60a5b739ac2fdda8a86ef_1777341429069_d86d6059.PNG',
@@ -39,9 +45,9 @@ const Screenshots: React.FC = () => {
 
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {shots.map((s) => (
-            <div key={s.label} className="flex flex-col items-center text-center">
+            <div key={s.label} className="group flex flex-col items-center text-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-300 to-teal-300 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-300 to-teal-300 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity" />
                 <img
                   src={s.src}
                   alt={`Cali 22 ${s.label} screen`}

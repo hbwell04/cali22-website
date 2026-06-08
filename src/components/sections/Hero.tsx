@@ -3,7 +3,10 @@ import AppStoreBadges, { APPLE_APP_STORE_URL } from '@/components/AppStoreBadges
 import { Sparkles, ShieldCheck, Zap } from 'lucide-react';
 
 const LOGO_URL = 'https://d64gsuwffb70l.cloudfront.net/69a60a5b739ac2fdda8a86ef_1777341455796_679ab0c3.png';
-const HERO_SCREENSHOT = 'https://d64gsuwffb70l.cloudfront.net/69a60a5b739ac2fdda8a86ef_1777341428264_19f6274c.PNG';
+// Demo video — streamed straight from YouTube so the link never goes dead.
+// Swap the ID below (the part after /shorts/ or watch?v=) to change the video.
+//   https://youtube.com/shorts/q8BAY2v7qfY  ->  q8BAY2v7qfY
+const YOUTUBE_VIDEO_ID = 'q8BAY2v7qfY';
 const QR_CODE_URL = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=0&data=${encodeURIComponent(APPLE_APP_STORE_URL)}`;
 
 const Hero: React.FC = () => {
@@ -80,7 +83,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual */}
+          {/* Visual — live demo video plays right here in the hero */}
           <div className="relative flex justify-center">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-80 h-80 bg-gradient-to-br from-violet-400 to-teal-400 rounded-full blur-3xl opacity-30" />
@@ -89,13 +92,17 @@ const Hero: React.FC = () => {
               <img
                 src={LOGO_URL}
                 alt="Cali 22 logo"
-                className="absolute -top-6 -left-6 w-20 h-20 rounded-2xl shadow-xl ring-4 ring-white z-10"
+                className="absolute -top-6 -left-6 w-20 h-20 rounded-2xl shadow-xl ring-4 ring-white z-20"
               />
-              <img
-                src={HERO_SCREENSHOT}
-                alt="Cali 22 app showing Prop 22 earnings dashboard"
-                className="relative w-72 sm:w-80 rounded-[2.5rem] shadow-2xl ring-1 ring-slate-200"
-              />
+              <div className="relative w-72 sm:w-80 aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-2xl ring-1 ring-slate-200 bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=1&playsinline=1&rel=0&modestbranding=1`}
+                  title="Cali 22 live demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
             </div>
           </div>
         </div>
